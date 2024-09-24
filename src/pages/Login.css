@@ -1,0 +1,46 @@
+.center {
+    display: grid;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+}
+
+
+.general-container {
+    width: 100%;
+    height: 660px;
+    background-color: #4791ff;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.login-container {
+    width: 350px;
+    height: 60%;
+    padding: 30px;
+    border-radius: 15px;
+    background-color: #4063ff;
+    display: grid;
+    grid-template-rows: 80% 20%;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-container input {
+    height: 30px;
+    width: 80%;
+    background-color: #839aff;
+    outline: none;
+}
+
+.input-container button {
+    background-color: #1E3A8A;
+}
