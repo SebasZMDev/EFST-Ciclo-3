@@ -15,6 +15,7 @@ const Login = () => {
     const [errorMsg, setErrorMsg] = useState<string>('');
     const [usersList, setUsersList] = useState<UserInfo[]>([]);
 
+
     useEffect(() => {
         const savedList = localStorage.getItem('usersList');
         if (savedList) {
@@ -41,7 +42,27 @@ const Login = () => {
         }
     }
 
-    const CreateUser = () => {
+    const CreateUser = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const nameExist = usersList.some((element)=>(element.name==nameVal))
+        const mailExist = usersList.some((element)=>(element.email==emailVal))
+        if (nameExist || mailExist) {
+            setErrorMsg('Ya existe un usuario con esos datos')
+            return
+        }
+        if (emailVal.length<6||emailVal=='') {
+            setErrorMsg('Ingrese un email valido')
+            return
+        }
+        if (nameVal.length<3||nameVal=='') {
+            setErrorMsg('caracteres minimos del nombre: 3')
+            return
+        }
+        if (passwordVal.length<5||passwordVal=='') {
+            setErrorMsg('caracteres minimos de contraseña: 5')
+            return
+        }
+        setErrorMsg('')
         const newUser: UserInfo = {
             id: 'U'+usersList.length,
             name: nameVal,
@@ -50,12 +71,28 @@ const Login = () => {
         }
         const UpdatedList = [...usersList, newUser]
         setUsersList(UpdatedList)
+        localStorage.setItem('usersList',JSON.stringify(UpdatedList))
+    }
+
+    const Loguearse = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const existUser = usersList.filter((element)=>(element.name!==nameLog||element.email!==nameLog))
+        if(existUser){
+            if ((existUser[0].name==nameLog||existUser[0].email==nameLog)&&existUser[0].password==passwordLog){
+                localStorage.setItem('actualUser',JSON.stringify(existUser[0]))
+                setErrorMsg('')
+                console.log('logueado con exito')
+            }else {
+                setErrorMsg('Ingrese una contraseña correcta')
+                return
+            }
+        }
     }
 
     return (
         <div className="general-container">
             {hasAcc?
-            (<div className="login-container" onSubmit={()=>{}}>
+            (<form className="login-container" onSubmit={Loguearse}>
                 <div className="input-container">
                     <h4>Usuario</h4>
                     <input onChange={(e)=>HandleChange(e,'nombreLog')} type="text"/>
@@ -64,11 +101,11 @@ const Login = () => {
                     <button>Iniciar Sesion</button>
                 </div>
                 <div className="center">
-                    <h4 onClick={()=>setHasAcc(false)}>Eres nuevo? Registrate</h4>
-                    <h4></h4>
+                    <h4 onClick={()=>{setHasAcc(false); setErrorMsg('')}}>Eres nuevo? Registrate</h4>
+                    <h4 style={{color:'red'}}>{errorMsg}</h4>
                 </div>
-            </div>):
-            (<div className="login-container">
+            </form>):
+            (<form className="login-container" onSubmit={CreateUser}>
                 <div className="input-container">
                     <h4>Correo</h4>
                     <input onChange={(e)=>HandleChange(e,'email')} type="email"/>
@@ -79,10 +116,10 @@ const Login = () => {
                     <button>Registrarse</button>
                 </div>
                 <div className="center">
-                    <h4 onClick={()=>setHasAcc(true)}>Ya tienes cuenta? Iniciar Sesion</h4>
-                    <h4></h4>
+                    <h4 onClick={()=>{setHasAcc(true); setErrorMsg('')}}>Ya tienes cuenta? Iniciar Sesion</h4>
+                    <h4 style={{color:'red'}}>{errorMsg}</h4>
                 </div>
-            </div>)
+            </form>)
             }
         </div>
     )

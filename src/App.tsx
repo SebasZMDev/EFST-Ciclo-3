@@ -26,11 +26,17 @@ function App() {
   return (
       <Router>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<HomeOrLogin />} />
+          <Route path="/pages/Login" element={<Login />} />
           <Route path="/pages/Home" element={<Home />} />
         </Routes>
       </Router>
   )
+}
+
+function HomeOrLogin() {
+  const isUserLogged = localStorage.getItem('actualUser');
+  return isUserLogged ? <Home />: <Login />;
 }
 
 export default App
