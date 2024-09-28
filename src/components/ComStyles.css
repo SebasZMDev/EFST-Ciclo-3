@@ -4,3 +4,96 @@
     box-sizing: border-box;
 }
 
+
+:root {
+    --background-color: #587fff;
+    --text-color: #ffff;
+    --primary-color: #003366;
+    --secondary-color: #94efff;
+    --light: #bbe6ff;
+}
+
+[data-theme='dark'] {
+    --background-color: #92caff;
+    --text-color: #000000;
+    --primary-color: #94efff;
+    --secondary-color: #003366;
+    --light: #ff9900;
+}
+
+.nav-bar {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-family: Arial, sans-serif;
+    border-bottom: 2px solid #ccc;
+}
+
+.nav-logo {
+    width: 50px;
+    height: auto;
+    filter: drop-shadow(var(--light) 0 -2px 6px);
+}
+
+.nav-theme {
+    display: grid;
+    align-items: center;
+    background-color: var(--background-color);
+    overflow: hidden;
+}
+
+.sun {
+    transform: scale(1.5);
+    color: orangered;
+    filter: drop-shadow(orangered 0 0 5px);
+}
+
+.moon {
+    transform: scale(1.5);
+    color: #ffffff;
+    filter: drop-shadow(white 0 0 3px);
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-link {
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ffcc00;
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+}
+
+.welcome-message {
+    font-size: 18px;
+    margin-right: 15px;
+}
+
+.login-button {
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #ffcc00;
+    color: #003366;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #ff9900;
+}

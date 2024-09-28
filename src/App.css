@@ -2,6 +2,29 @@
   text-align: center;
 }
 
+
+:root {
+  --background-color: #bffdff;
+  --text-color: #ffff;
+  --primary-color: #003366;
+  --secondary-color: #94efff;
+  --light: #fff300;
+}
+
+[data-theme='dark'] {
+  --background-color: #ffff;
+  --text-color: #000000;
+  --primary-color: #94efff;
+  --secondary-color: #003366;
+  --light: #bbe6ff;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
