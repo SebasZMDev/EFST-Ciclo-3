@@ -2,10 +2,12 @@ import { useState } from "react"
 import { UserInfo } from "../App";
 import './Login.css'
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 
 const Login = () => {
-
+    const navigate = useNavigate();
     const [hasAcc,setHasAcc] = useState(false);
     const [emailVal, setEmailVal] = useState<string>('');
     const [nameVal, setNameVal] = useState<string>('');
@@ -72,16 +74,18 @@ const Login = () => {
         const UpdatedList = [...usersList, newUser]
         setUsersList(UpdatedList)
         localStorage.setItem('usersList',JSON.stringify(UpdatedList))
+        console.log(usersList)
     }
 
     const Loguearse = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const existUser = usersList.filter((element)=>(element.name!==nameLog||element.email!==nameLog))
+        const existUser = usersList.find((element)=>(element.name==nameLog||element.email==nameLog))
         if(existUser){
-            if ((existUser[0].name==nameLog||existUser[0].email==nameLog)&&existUser[0].password==passwordLog){
-                localStorage.setItem('actualUser',JSON.stringify(existUser[0]))
-                setErrorMsg('')
+            if ((existUser.name==nameLog||existUser.email==nameLog)&&existUser.password==passwordLog){
+                localStorage.setItem('actualUser',JSON.stringify(existUser))
+                navigate('/pages/Home')
                 console.log('logueado con exito')
+                window.location.reload();
             }else {
                 setErrorMsg('Ingrese una contraseña correcta')
                 return
@@ -101,8 +105,9 @@ const Login = () => {
                     <button>Iniciar Sesion</button>
                 </div>
                 <div className="center">
-                    <h4 onClick={()=>{setHasAcc(false); setErrorMsg('')}}>Eres nuevo? Registrate</h4>
-                    <h4 style={{color:'red'}}>{errorMsg}</h4>
+                    <h4>Eres nuevo?</h4>
+                    <h4  onClick={()=>{setHasAcc(false); setErrorMsg('')}} style={{color:'blue', cursor:'pointer'}}>Registrate</h4>
+                    <h4 style={{textShadow:'1px 1px 2px 2px black'}}>{errorMsg}</h4>
                 </div>
             </form>):
             (<form className="login-container" onSubmit={CreateUser}>
@@ -116,8 +121,9 @@ const Login = () => {
                     <button>Registrarse</button>
                 </div>
                 <div className="center">
-                    <h4 onClick={()=>{setHasAcc(true); setErrorMsg('')}}>Ya tienes cuenta? Iniciar Sesion</h4>
-                    <h4 style={{color:'red'}}>{errorMsg}</h4>
+                    <h4>Ya tienes cuenta?</h4>
+                    <h4  onClick={()=>{setHasAcc(true); setErrorMsg('')}} style={{color:'blue', cursor:'pointer'}}>Iniciar Sesion</h4>
+                    <h4 style={{textShadow:'1px 1px 2px 2px black'}}>{errorMsg}</h4>
                 </div>
             </form>)
             }

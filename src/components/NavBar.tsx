@@ -17,11 +17,11 @@ const NavBar = () => {
 
     return (
         <nav className='nav-bar'>
-            <img className='nav-logo' src='/public/cordillera.png' alt="Logo" />
+            <img className='nav-logo' src='/public/logo.png' alt="Logo" />
             <div className='nav-links'>
                 <h4 className='nav-link'>Buses y Viajes</h4>
                 <h4 className='nav-link'>Horarios y Precios</h4>
-                <button className='nav-theme' onClick={toggleTheme}><WiMoonFull className={theme=='light'?'moon':'sun'}/></button>
+                <button className='nav-theme' onClick={toggleTheme}><WiMoonFull className={theme=='light'?'sun':'moon'}/></button>
                 <div className='nav-user'>
                     {getUser() ? (
                         <span className='welcome-message'>

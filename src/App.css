@@ -4,20 +4,21 @@
 
 
 :root {
-  --background-color: #bffdff;
-  --text-color: #ffff;
-  --primary-color: #003366;
-  --secondary-color: #94efff;
-  --light: #fff300;
+  --background-color: #ffe6e6; /* Rojo claro */
+  --text-color: #002200; /* Verde oscuro */
+  --primary-color: #cc0000; /* Rojo oscuro */
+  --secondary-color: #66ff66; /* Verde claro */
+  --light: #ffcccc; /* Rojo muy claro */
 }
 
 [data-theme='dark'] {
-  --background-color: #ffff;
-  --text-color: #000000;
-  --primary-color: #94efff;
-  --secondary-color: #003366;
-  --light: #bbe6ff;
+  --background-color: #001100; /* Verde muy oscuro */
+  --text-color: #ffeeee; /* Rojo claro */
+  --primary-color: #009900; /* Verde oscuro */
+  --secondary-color: #ff3333; /* Rojo brillante */
+  --light: #ccffcc; /* Verde claro */
 }
+
 
 body {
   background-color: var(--background-color);

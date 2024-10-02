@@ -1,5 +1,6 @@
 import { getUserInfo } from '../hooks/getUserInfo';
-import NavBar from '../components/navBar';
+import NavBar from '../components/NavBar';
+import ViajeSelector from '../components/ViajeSelector';
 
 
 const Home = () =>{
@@ -7,7 +8,7 @@ const Home = () =>{
     return(
         <div>
             <NavBar/>
-            WELCOME TO HOME!! {getUser().name}
+            <ViajeSelector/>
         </div>
     )
 }

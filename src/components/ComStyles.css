@@ -6,42 +6,43 @@
 
 
 :root {
-    --background-color: #587fff;
-    --text-color: #ffff;
-    --primary-color: #003366;
-    --secondary-color: #94efff;
-    --light: #bbe6ff;
-}
+    --background-color: #ffffff;
+    --text-color: #002200;
+    --primary-color: #cc0000;
+    --secondary-color: #009900;
+    --nav-bg-color: #009900;
+  }
 
-[data-theme='dark'] {
-    --background-color: #92caff;
-    --text-color: #000000;
-    --primary-color: #94efff;
-    --secondary-color: #003366;
-    --light: #ff9900;
-}
+  [data-theme='dark'] {
+    --background-color: #505050;
+    --text-color: #ffffff;
+    --primary-color: #ff3333;
+    --secondary-color: #00b33c;
+    --nav-bg-color: #101010;
+  }
 
-.nav-bar {
-    background-color: var(--primary-color);
+  /* ------------------------------ NAVBAR ------------------------------ */
+
+  .nav-bar {
+    background-color: var(--nav-bg-color);
     color: var(--text-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     font-family: Arial, sans-serif;
-    border-bottom: 2px solid #ccc;
-}
+  }
 
 .nav-logo {
-    width: 50px;
+    width: 100px;
     height: auto;
-    filter: drop-shadow(var(--light) 0 -2px 6px);
+    filter: drop-shadow(white 0 0 5px);
 }
 
 .nav-theme {
     display: grid;
     align-items: center;
-    background-color: var(--background-color);
+    background-color: skyblue;
     overflow: hidden;
 }
 
@@ -96,4 +97,35 @@
 
 .login-button:hover {
     background-color: #ff9900;
+}
+
+  /* ------------------------------ VIAJE SELECTOR ------------------------------ */
+
+.vs-general-container {
+    width: 90%;
+    margin: 20PX auto;
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    background-color: #009900;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.vs-item-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vs-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.vs-input {
+    width: 100%;
+    height: 40px;
+    color: var(--text-color);
+    background-color: #009900;
 }
