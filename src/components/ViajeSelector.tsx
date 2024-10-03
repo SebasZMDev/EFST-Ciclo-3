@@ -7,6 +7,48 @@ const ViajeSelector = () => {
     const [fechaIda, setFechaIda] = useState<Date>();
     const [fechaRegreso, setFechaRegreso] = useState<Date>();
 
+    const Lugares = [
+        { id: 1, lugar: "LIMA" },
+        { id: 2, lugar: "HUARAZ" },
+        { id: 3, lugar: "CARAZ" },
+        { id: 4, lugar: "PIURA" },
+        { id: 5, lugar: "SULLANA" },
+        { id: 6, lugar: "CHIQUIAN" },
+        { id: 7, lugar: "LA UNION" },
+        { id: 8, lugar: "PACHAPAQUI" },
+        { id: 9, lugar: "HUALLANCA" },
+        { id: 10, lugar: "HUANZALA" },
+        { id: 11, lugar: "CARHUAZ" },
+        { id: 12, lugar: "MARCARA" },
+        { id: 13, lugar: "MANCOS" },
+        { id: 14, lugar: "YUNGAY" },
+        { id: 15, lugar: "RANRAHIRCA" },
+        { id: 16, lugar: "AQUIA" },
+        { id: 17, lugar: "TINGUA" },
+        { id: 18, lugar: "PAMPAN" },
+        { id: 19, lugar: "RECUAY" },
+        { id: 20, lugar: "BARRANCA" },
+        { id: 21, lugar: "HUAURA" },
+        { id: 22, lugar: "CHICLAYO" },
+        { id: 23, lugar: "TRUJILLO" },
+        { id: 24, lugar: "CONOCHA" },
+        { id: 25, lugar: "LAMBAYEQUE" },
+        { id: 26, lugar: "CATACAOS" },
+        { id: 27, lugar: "LA ARENA" },
+        { id: 28, lugar: "LA UNION-PIURA" },
+        { id: 29, lugar: "SECHURA" },
+        { id: 30, lugar: "CUSCO" },
+        { id: 31, lugar: "NAZCA" },
+        { id: 32, lugar: "PUQUIO" },
+        { id: 33, lugar: "CHALHUANCA" },
+        { id: 34, lugar: "ABANCAY" },
+        { id: 35, lugar: "TAMBOGRANDE" },
+        { id: 36, lugar: "ICA" },
+        { id: 37, lugar: "LAS LOMAS" },
+        { id: 38, lugar: "PAITA" },
+      ];
+
+
     const handlePlace = (value: string, e: React.ChangeEvent<HTMLSelectElement>) => {
         if (value === 'origen') {
           setOrigen(e.target.value);
@@ -16,15 +58,30 @@ const ViajeSelector = () => {
           }
       };
 
-    const handleDates = (value:string, e:React.ChangeEvent<HTMLInputElement>) =>{
-        const date = new Date(e.target.value);
+      const handleDates = (value: string, e: React.ChangeEvent<HTMLInputElement>) => {
+        const today = new Date
+        const date = new Date(e.target.value + "T00:00:00");
+        if (date.getDate()<today.getDate() || date.getMonth()<today.getMonth()){
+            alert("Elija una fecha valida")
+        }
+        if (fechaIda){
+            if (fechaIda.getDate()<today.getDate() || fechaIda.getMonth()<today.getMonth()){
+                alert("Elija una fecha valida")
+            }
+            if (fechaIda.getDate()>date.getDate() || fechaIda.getMonth()>date.getMonth()){
+                alert("Elija una fecha valida")
+            }
+        }
+        console.log(date.getDate());
+        console.log(date.getMonth() + 1);
         if (value === 'ida') {
             setFechaIda(date);
-          }
-          if (value === 'regreso') {
+        }
+        if (value === 'regreso') {
             setFechaRegreso(date);
-            }
-    }
+        }
+    };
+
 
     const ShowCalendar = (e: React.MouseEvent<HTMLDivElement>) => {
         const inputElement = e.currentTarget.querySelector('input[type="date"]') as HTMLInputElement;
@@ -33,96 +90,35 @@ const ViajeSelector = () => {
         }
     };
 
+    const ShowValues = () =>{
+        console.log(
+            "Origen"+ origen,
+            "Destino"+destino,
+            "Fecha de Ida"+fechaIda,
+            "Fecha de Retorno"+fechaRegreso,
+        )
+    }
+
     return (
         <div className="vs-general-container">
             <div className="vs-item-div">
-                <img className="vs-icon" src="/public/ciudad.png"/>
+                <img onClick={ShowValues} className="vs-icon" src="/public/ciudad.png"/>
                 <h4>Origen</h4>
                 <select onChange={(e) => handlePlace('origen', e)} className="vs-input">
-                    <option value="0">ORIGEN</option>
-                    <option value="1">LIMA</option>
-                    <option value="2">HUARAZ</option>
-                    <option value="3">CARAZ</option>
-                    <option value="4">PIURA</option>
-                    <option value="5">SULLANA</option>
-                    <option value="6">CHIQUIAN</option>
-                    <option value="7">LA UNION</option>
-                    <option value="8">PACHAPAQUI</option>
-                    <option value="9">HUALLANCA</option>
-                    <option value="10">HUANZALA</option>
-                    <option value="11">CARHUAZ</option>
-                    <option value="12">MARCARA</option>
-                    <option value="13">MANCOS</option>
-                    <option value="14">YUNGAY</option>
-                    <option value="15">RANRAHIRCA</option>
-                    <option value="16">AQUIA</option>
-                    <option value="18">TINGUA</option>
-                    <option value="19">PAMPAN</option>
-                    <option value="20">RECUAY</option>
-                    <option value="24">BARRANCA</option>
-                    <option value="25">HUAURA</option>
-                    <option value="28">CHICLAYO</option>
-                    <option value="29">TRUJILLO</option>
-                    <option value="30">CONOCHA</option>
-                    <option value="32">LAMBAYEQUE</option>
-                    <option value="35">CATACAOS</option>
-                    <option value="36">LA ARENA</option>
-                    <option value="37">LA UNION-PIURA</option>
-                    <option value="38">SECHURA</option>
-                    <option value="50">CUSCO</option>
-                    <option value="51">NAZCA</option>
-                    <option value="52">PUQUIO</option>
-                    <option value="53">CHALHUANCA</option>
-                    <option value="54">ABANCAY</option>
-                    <option value="56">TAMBOGRANDE</option>
-                    <option value="65">ICA</option>
-                    <option value="71">LAS LOMAS</option>
-                    <option value="122">PAITA</option>
+                    <option value={0}>Origen</option>
+                    {Lugares.map((element)=>(
+                        <option key={element.id} value={element.id}>{element.lugar}</option>
+                    ))}
                 </select>
             </div>
             <div className="vs-item-div">
                 <img className="vs-icon" src="/public/cordillera.png"/>
                 <h4>Destino</h4>
                 <select onChange={(e) => handlePlace('destino', e)} className="vs-input">
-                    <option value="0">ORIGEN</option>
-                    <option value="1">LIMA</option>
-                    <option value="2">HUARAZ</option>
-                    <option value="3">CARAZ</option>
-                    <option value="4">PIURA</option>
-                    <option value="5">SULLANA</option>
-                    <option value="6">CHIQUIAN</option>
-                    <option value="7">LA UNION</option>
-                    <option value="8">PACHAPAQUI</option>
-                    <option value="9">HUALLANCA</option>
-                    <option value="10">HUANZALA</option>
-                    <option value="11">CARHUAZ</option>
-                    <option value="12">MARCARA</option>
-                    <option value="13">MANCOS</option>
-                    <option value="14">YUNGAY</option>
-                    <option value="15">RANRAHIRCA</option>
-                    <option value="16">AQUIA</option>
-                    <option value="18">TINGUA</option>
-                    <option value="19">PAMPAN</option>
-                    <option value="20">RECUAY</option>
-                    <option value="24">BARRANCA</option>
-                    <option value="25">HUAURA</option>
-                    <option value="28">CHICLAYO</option>
-                    <option value="29">TRUJILLO</option>
-                    <option value="30">CONOCHA</option>
-                    <option value="32">LAMBAYEQUE</option>
-                    <option value="35">CATACAOS</option>
-                    <option value="36">LA ARENA</option>
-                    <option value="37">LA UNION-PIURA</option>
-                    <option value="38">SECHURA</option>
-                    <option value="50">CUSCO</option>
-                    <option value="51">NAZCA</option>
-                    <option value="52">PUQUIO</option>
-                    <option value="53">CHALHUANCA</option>
-                    <option value="54">ABANCAY</option>
-                    <option value="56">TAMBOGRANDE</option>
-                    <option value="65">ICA</option>
-                    <option value="71">LAS LOMAS</option>
-                    <option value="122">PAITA</option>
+                <option value={0}>Destino</option>
+                    {Lugares.map((element)=>(
+                        <option key={element.id} value={element.id}>{element.lugar}</option>
+                    ))}
                 </select>
             </div>
             <div className="vs-item-div" onClick={ShowCalendar}>
