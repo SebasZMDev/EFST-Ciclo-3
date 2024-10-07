@@ -1,13 +1,12 @@
-import { getUserInfo } from '../hooks/getUserInfo';
 import NavBar from '../components/NavBar';
 import ViajeSelector from '../components/ViajeSelector';
-
+import Bienvenida from '../components/Bienvenida';
 
 const Home = () =>{
-    const {getUser} = getUserInfo();
     return(
         <div>
             <NavBar/>
+            <Bienvenida/>
             <ViajeSelector/>
         </div>
     )

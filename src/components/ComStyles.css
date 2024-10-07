@@ -7,19 +7,12 @@
 
 :root {
     --background-color: #ffffff;
-    --text-color: #002200;
+    --text-color: #ffffff;
     --primary-color: #cc0000;
     --secondary-color: #009900;
-    --nav-bg-color: #009900;
+    --nav-bg-color: #404040;
   }
 
-  [data-theme='dark'] {
-    --background-color: #505050;
-    --text-color: #ffffff;
-    --primary-color: #ff3333;
-    --secondary-color: #00b33c;
-    --nav-bg-color: #101010;
-  }
 
   /* ------------------------------ NAVBAR ------------------------------ */
 
@@ -29,14 +22,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 20px 20px;
     font-family: Arial, sans-serif;
   }
 
 .nav-logo {
     width: 100px;
     height: auto;
-    filter: drop-shadow(white 0 0 5px);
+    filter: drop-shadow(white 0 0 1px);
 }
 
 .nav-theme {
@@ -103,12 +96,12 @@
 
 .vs-general-container {
     width: 90%;
-    margin: 20PX auto;
-    padding-top: 10px;
+    margin: 0 auto 20px auto;
+    padding-top: 25px;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    background-color: #009900;
-    border-radius: 5px;
+    background-color: #404040;
+    border-radius: 0 0 10px 10px;
     overflow: hidden;
     align-items: end;
 }
@@ -128,5 +121,76 @@
     width: 100%;
     height: 40px;
     color: var(--text-color);
-    background-color: #009900;
+    background-color: #404040;
 }
+
+
+.vs-confirm-div {
+    margin: 20px auto;
+    width: 90%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    background-color: #404040;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 1s all;
+}
+
+.vs-confirm-item {
+    height: 100%;
+    align-content: center;
+    transition: 1s all;
+}
+
+.vs-confirm-item:hover{
+    transition: 0.25s all;
+    background-color: #606060;
+}
+
+/* ------------------------------ Bienvenida  ------------------------------ */
+
+.bienvenida-container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.bienvenido-bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.bienvenida-img {
+    width: 300px;
+    height: auto;
+    margin: 20px 0;
+}
+
+.bienvenida-msg {
+    color: white;
+    margin: 10px 0;
+}
+
+.bienvenida-msg h3 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.bienvenida-msg h4 {
+    font-size: 18px;
+    font-weight: normal;
+}
+

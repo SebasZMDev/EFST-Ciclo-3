@@ -1,19 +1,8 @@
-import { useState, useEffect } from 'react';
 import { getUserInfo } from '../hooks/getUserInfo';
 import './ComStyles.css'
-import { WiMoonFull } from "react-icons/wi";
 
 const NavBar = () => {
     const { getUser } = getUserInfo();
-    const [theme, setTheme] = useState('light');
-
-    useEffect(() => {
-        document.documentElement.setAttribute('data-theme', theme);
-    }, [theme]);
-
-    const toggleTheme = () => {
-        setTheme(theme === 'light' ? 'dark' : 'light');
-    };
 
     return (
         <nav className='nav-bar'>
@@ -21,7 +10,6 @@ const NavBar = () => {
             <div className='nav-links'>
                 <h4 className='nav-link'>Buses y Viajes</h4>
                 <h4 className='nav-link'>Horarios y Precios</h4>
-                <button className='nav-theme' onClick={toggleTheme}><WiMoonFull className={theme=='light'?'sun':'moon'}/></button>
                 <div className='nav-user'>
                     {getUser() ? (
                         <span className='welcome-message'>
