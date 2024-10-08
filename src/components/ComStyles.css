@@ -194,3 +194,51 @@
     font-weight: normal;
 }
 
+/* ------------------------------ Modal ------------------------------ */
+
+
+.modal-general {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+
+.modal-bg {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 75%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.modal-div {
+    width: 300px;
+    display: grid;
+    align-items: center;
+    align-content: c;
+    background-color: #202020;
+    position: relative;
+    padding: 25px;
+    border: 2px solid white;
+    border-radius: 20px;
+}
+
+.modal-text {
+    font-size: 2rem;
+    text-align: center;
+    padding-bottom: 20px;
+    font-weight: 500;
+}
+
+.modal-btn {
+    border: 1px solid white;
+    border-radius: 5px;
+}

@@ -1,7 +1,8 @@
 import { useState } from "react"
+import useModal from "../hooks/useModal";
 
 const ViajeSelector = () => {
-
+    const { openModal, Modal} = useModal();
     const [origen, setOrigen] = useState('');
     const [destino, setDestino] = useState('');
     const [fechaIda, setFechaIda] = useState<Date>();
@@ -63,20 +64,7 @@ const ViajeSelector = () => {
       };
 
       const handleDates = (value: string, e: React.ChangeEvent<HTMLInputElement>) => {
-        const today = new Date
         const date = new Date(e.target.value + "T00:00:00");
-        if (date.getDate()<today.getDate() || date.getMonth()<today.getMonth()){
-            alert("Elija una fecha valida")
-        }
-        if (fechaIda){
-            if (fechaIda.getDate()<today.getDate() || fechaIda.getMonth()<today.getMonth()){
-                alert("Elija una fecha valida")
-            }
-            if (fechaIda.getDate()>date.getDate() || fechaIda.getMonth()>date.getMonth()){
-                alert("Elija una fecha valida")
-            }
-        }
-
         if (value === 'ida') {
             setFechaIda(date);
         }
@@ -106,12 +94,14 @@ const ViajeSelector = () => {
     }
 
     const Verificador = () => {
-        if (fechaIda&&fechaRegreso){
-            if (fechaIda.getMonth()>fechaRegreso.getMonth()){
-                alert("Elija una fecha valida")
-            }else{
-                if (fechaIda.getDate()>fechaRegreso.getDate()){
-                    alert("Elija una fecha valida")
+        if (origen && destino && fechaIda){
+            if (fechaRegreso){
+                if (fechaIda<fechaRegreso) {
+                    console.log('Se eligio el  viaje correctamente');
+                }else {
+                    openModal("Ingrese una fecha valida");
+                    console.log('idiota')
+                    return
                 }
             }
         }
@@ -178,10 +168,11 @@ const ViajeSelector = () => {
                         </h5>):''
                     }
                     {origen && destino && fechaIda?
-                        (<button>Confirmar</button>):''
+                        (<button onClick={Verificador}>Confirmar</button>):''
                     }
                 </div>
             </div>
+            <Modal/>
         </>
     )
 }
