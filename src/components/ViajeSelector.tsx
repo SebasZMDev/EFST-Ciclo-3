@@ -1,8 +1,10 @@
 import { useState } from "react"
 import useModal from "../hooks/useModal";
+import { useNavigate } from "react-router-dom";
 
 const ViajeSelector = () => {
     const { openModal, Modal} = useModal();
+    const navigate = useNavigate();
     const [origen, setOrigen] = useState('');
     const [destino, setDestino] = useState('');
     const [fechaIda, setFechaIda] = useState<Date>();
@@ -74,12 +76,25 @@ const ViajeSelector = () => {
     };
 
 
-    const ShowCalendar = (e: React.MouseEvent<HTMLDivElement>) => {
+    const ShowCalendarIda = (e: React.MouseEvent<HTMLDivElement>) => {
         const inputElement = e.currentTarget.querySelector('input[type="date"]') as HTMLInputElement;
         if (inputElement) {
-          const hoy = new Date().toISOString().split('T')[0];
-          inputElement.setAttribute('min', hoy);
-          inputElement.showPicker();
+            const hoy = new Date().toISOString().split('T')[0];
+            inputElement.setAttribute('min', hoy);
+            inputElement.showPicker();
+        }
+      };
+
+      const ShowCalendarVuelta = (e: React.MouseEvent<HTMLDivElement>) => {
+        const inputElement = e.currentTarget.querySelector('input[type="date"]') as HTMLInputElement;
+        if (inputElement&&fechaIda){
+            const minimo = fechaIda.toISOString().split('T')[0];
+            inputElement.setAttribute('min', minimo);
+            inputElement.showPicker();
+        }else if(inputElement) {
+            const hoy = new Date().toISOString().split('T')[0];
+            inputElement.setAttribute('min', hoy);
+            inputElement.showPicker();
         }
       };
 
@@ -95,86 +110,141 @@ const ViajeSelector = () => {
 
     const Verificador = () => {
         if (origen && destino && fechaIda){
+            if (origen==destino){
+                openModal("El Origen y Destino no pueden ser el mismo")
+                return
+            }
             if (fechaRegreso){
                 if (fechaIda<fechaRegreso) {
-                    console.log('Se eligio el  viaje correctamente');
+                    console.log("Se eligio el  viaje correctamente");
+                    navigate('/pages/SelectBus')
+
+                    return
                 }else {
                     openModal("Ingrese una fecha valida");
                     console.log('idiota')
                     return
                 }
             }
+            console.log("Se eligio el  viaje correctamente");
+            navigate('/pages/SelectBus')
         }
     }
 
     return (
-        <>
-            <div className="vs-general-container">
-            <div className="vs-item-div">
-                <img onClick={ShowValues} className="vs-icon" src="/public/ciudad.png"/>
-                <h4>Origen</h4>
-                <select onChange={(e) => handlePlace('origen', e)} className="vs-input">
-                    <option value={0}>ORIGEN</option>
-                    {Lugares.map((element)=>(
-                        <option key={element.id} value={element.id}>{element.lugar}</option>
-                    ))}
-                </select>
-            </div>
-            <div className="vs-item-div">
-                <img className="vs-icon" src="/public/cordillera.png"/>
-                <h4>Destino</h4>
-                <select onChange={(e) => handlePlace('destino', e)} className="vs-input">
-                <option value={0}>DESTINO</option>
-                    {Lugares.map((element)=>(
-                        <option key={element.id} value={element.id}>{element.lugar}</option>
-                    ))}
-                </select>
-            </div>
-            <div className="vs-item-div" onClick={ShowCalendar}>
-                <img className="vs-icon" src="/public/autobus.png"/>
-                <h4>Fecha de Partida</h4>
-                <input onChange={(e)=>handleDates('ida', e)} className="vs-input" type="date" />
-            </div>
-            <div className="vs-item-div" onClick={ShowCalendar}>
-                <img className="vs-icon" src="/public/autobus2.png"/>
-                <h4>Fecha de Regreso (Opcional)</h4>
-                <input onChange={(e)=>handleDates('regreso', e)}  className="vs-input" type="date" />
-            </div>
-            </div>
-            <div>
-                <div className="vs-confirm-div" style={{display:origen || destino || fechaIda || fechaRegreso?'grid':'none', gridTemplateColumns:fechaRegreso?'20% 20% 20% 20% 20%':'25% 25% 25% 25%'}}>
-                    {
-                        origen?(
-                        <h5 className="vs-confirm-item">
-                            Origen: {origen}
-                        </h5>):''
-                    }
-                    {
-                        destino?(
-                        <h5 className="vs-confirm-item">
-                            Destino: {destino}
-                        </h5>):''
-                    }
-                    {
-                        fechaIda?(
-                        <h5 className="vs-confirm-item">
-                            Fecha de Ida: {fechaIda.getDate()+"/"+fechaIda.getMonth()+"/"+fechaIda.getFullYear()}
-                        </h5>):''
-                    }
-                    {
-                        fechaRegreso?(
-                        <h5 className="vs-confirm-item">
-                            Fecha de Regreso: {fechaRegreso.getDate()+"/"+fechaRegreso.getMonth()+"/"+fechaRegreso.getFullYear()}
-                        </h5>):''
-                    }
-                    {origen && destino && fechaIda?
-                        (<button onClick={Verificador}>Confirmar</button>):''
-                    }
-                </div>
-            </div>
-            <Modal/>
-        </>
-    )
+      <>
+        <div style={{background:'#404040', width:'90%', margin:'0 auto'}}>
+            <h2>Elija su viaje</h2>
+        </div>
+        <div className="vs-general-container">
+          <div className="vs-item-div">
+            <img
+              onClick={ShowValues}
+              className="vs-icon"
+              src="/public/ciudad.png"
+            />
+            <h4>Origen</h4>
+            <select
+              onChange={(e) => handlePlace("origen", e)}
+              className="vs-input"
+            >
+              <option value={0}>ORIGEN</option>
+              {Lugares.map((element) => (
+                <option key={element.id} value={element.id}>
+                  {element.lugar}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="vs-item-div">
+            <img className="vs-icon" src="/public/cordillera.png" />
+            <h4>Destino</h4>
+            <select
+              onChange={(e) => handlePlace("destino", e)}
+              className="vs-input"
+            >
+              <option value={0}>DESTINO</option>
+              {Lugares.map((element) => (
+                <option key={element.id} value={element.id}>
+                  {element.lugar}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="vs-item-div" onClick={ShowCalendarIda}>
+            <img className="vs-icon" src="/public/autobus.png" />
+            <h4>Fecha de Partida</h4>
+            <input
+              onChange={(e) => handleDates("ida", e)}
+              className="vs-input"
+              type="date"
+            />
+          </div>
+          <div className="vs-item-div" onClick={ShowCalendarVuelta}>
+            <img className="vs-icon" src="/public/autobus2.png" />
+            <h4>Fecha de Regreso (Opcional)</h4>
+            <input
+              onChange={(e) => handleDates("regreso", e)}
+              className="vs-input"
+              type="date"
+            />
+          </div>
+        </div>
+        <div>
+          <div
+            className="vs-confirm-div"
+            style={{
+              display:
+                origen || destino || fechaIda || fechaRegreso ? "grid" : "none",
+              gridTemplateColumns: fechaRegreso
+                ? "20% 20% 20% 20% 20%"
+                : "25% 25% 25% 25%",
+            }}
+          >
+            {origen ? (
+              <h5 className="vs-confirm-item">Origen: {origen}</h5>
+            ) : (
+              ""
+            )}
+            {destino ? (
+              <h5 className="vs-confirm-item">Destino: {destino}</h5>
+            ) : (
+              ""
+            )}
+            {fechaIda ? (
+              <h5 className="vs-confirm-item">
+                Fecha de Ida:{" "}
+                {fechaIda.getDate() +
+                  "/" +
+                  fechaIda.getMonth() +
+                  "/" +
+                  fechaIda.getFullYear()}
+              </h5>
+            ) : (
+              ""
+            )}
+            {fechaRegreso ? (
+              <h5 className="vs-confirm-item">
+                Fecha de Regreso:{" "}
+                {fechaRegreso.getDate() +
+                  "/" +
+                  fechaRegreso.getMonth() +
+                  "/" +
+                  fechaRegreso.getFullYear()}
+              </h5>
+            ) : (
+              ""
+            )}
+            {origen && destino && fechaIda ? (
+              <button onClick={Verificador}>Confirmar</button>
+            ) : (
+              ""
+            )}
+          </div>
+        </div>
+        <Modal />
+      </>
+    );
 }
 
 export default ViajeSelector

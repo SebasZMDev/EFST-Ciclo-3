@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home'
 import Login from './pages/Login';
 import { useEffect } from 'react';
+import SelectBus from './pages/SelectBus';
 
 export type UserInfo = {
   id: string,
@@ -29,6 +30,7 @@ function App() {
           <Route path="/" element={<HomeOrLogin />} />
           <Route path="/pages/Login" element={<Login />} />
           <Route path="/pages/Home" element={<Home />} />
+          <Route path="/pages/SelectBus" element={<SelectBus />} />
         </Routes>
       </Router>
   )
