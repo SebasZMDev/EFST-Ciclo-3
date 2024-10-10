@@ -1,6 +1,7 @@
 import { useState } from "react"
 import useModal from "../hooks/useModal";
 import { useNavigate } from "react-router-dom";
+import CustomBtn from "./CustomBtn";
 
 const ViajeSelector = () => {
     const { openModal, Modal} = useModal();
@@ -236,7 +237,7 @@ const ViajeSelector = () => {
               ""
             )}
             {origen && destino && fechaIda ? (
-              <button onClick={Verificador}>Confirmar</button>
+              <CustomBtn text='confirmar' onClick={Verificador}/>
             ) : (
               ""
             )}

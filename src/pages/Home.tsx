@@ -1,5 +1,4 @@
 import NavBar from '../components/NavBar';
-import ViajeSelector from '../components/ViajeSelector';
 import Bienvenida from '../components/Bienvenida';
 
 const Home = () =>{
@@ -7,7 +6,6 @@ const Home = () =>{
         <div>
             <NavBar/>
             <Bienvenida/>
-            <ViajeSelector/>
         </div>
     )
 }

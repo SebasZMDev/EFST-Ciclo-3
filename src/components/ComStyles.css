@@ -13,6 +13,35 @@
     --nav-bg-color: #404040;
   }
 
+  /* ------------------------------ CUSTOM BTN ------------------------------ */
+
+  .crimson-button {
+    background-color: crimson;
+    color: white;
+    padding: 10px 20px;
+    border: 3px orangered solid;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .crimson-button:hover {
+    background-color: #dc143c;
+    transform: translateY(-2px);
+  }
+
+  .crimson-button:active {
+    background-color: #b22222;
+    transform: translateY(0);
+  }
+
+  .crimson-button:focus {
+    outline: none;
+  }
+
 
   /* ------------------------------ NAVBAR ------------------------------ */
 
@@ -59,20 +88,6 @@
     margin-right: 15px;
 }
 
-.login-button {
-    padding: 8px 16px;
-    font-size: 16px;
-    background-color: #ffcc00;
-    color: #003366;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.login-button:hover {
-    background-color: #ff9900;
-}
 
   /* ------------------------------ VIAJE SELECTOR ------------------------------ */
 
@@ -137,7 +152,7 @@
 
 .bienvenida-container {
     width: 90%;
-    margin: 0 auto;
+    margin: 50px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -155,19 +170,26 @@
     top: 0;
     left: 0;
     z-index: -1;
+    border-radius: 10px;
 }
 
 .bienvenida-img {
-    width: 300px;
+    width: 400px;
     height: auto;
     margin: 20px 0;
-
 }
 
 .bienvenida-msg {
     color: white;
     margin: 10px 0;
-    font-size: 1.5em;
+    font-size: 2em;
+    text-shadow: 1px 1px 5px red;
+}
+
+.bienvenida-minimsg{
+    color: white;
+    margin: 10px 0;
+    font-size: 1.25em;
     text-shadow: 1px 1px 5px red;
 }
 
@@ -213,9 +235,4 @@
     text-align: center;
     padding-bottom: 20px;
     font-weight: 500;
-}
-
-.modal-btn {
-    border: 1px solid white;
-    border-radius: 5px;
 }

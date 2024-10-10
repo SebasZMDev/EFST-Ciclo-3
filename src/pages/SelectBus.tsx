@@ -2,6 +2,7 @@ import ViajeSelector from "../components/ViajeSelector"
 import NavBar from "../components/NavBar"
 import './SelectBus.css'
 import { useEffect, useState } from "react"
+import CustomBtn from "../components/CustomBtn"
 
 const SelectBus = () => {
 
@@ -68,7 +69,7 @@ const SelectBus = () => {
             </>
             ):''
             }
-            <button onClick={()=>setPaso(paso+1)}>Siguiente</button>
+            <CustomBtn text='Siguiente' onClick={()=>setPaso(paso+1)}/>
         </>
     )
 }

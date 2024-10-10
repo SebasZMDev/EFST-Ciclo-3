@@ -1,6 +1,7 @@
 import '../components/ComStyles.css'
 import { useState } from 'react';
 import ReactDOM from 'react-dom';
+import CustomBtn from '../components/CustomBtn';
 
 const useModal = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +23,7 @@ const useModal = () => {
             </div>
             <div className="modal-div">
                 <div className="modal-text">{modalContent}</div>
-                <button className="modal-btn" onClick={closeModal}>Cerrar</button>
+                <CustomBtn text='Cerrar' onClick={closeModal}/>
             </div>
         </div>,
       document.body

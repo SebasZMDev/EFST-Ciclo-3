@@ -1,9 +1,13 @@
+import { useNavigate } from 'react-router-dom';
 import { getUserInfo } from '../hooks/getUserInfo';
 import './ComStyles.css'
+import CustomBtn from './CustomBtn';
+
 
 const NavBar = () => {
+    const navigate = useNavigate();
     const { getUser } = getUserInfo();
-
+    const user = getUser();
     return (
         <nav className='nav-bar'>
             <img className='nav-logo' src='/public/logo.png' alt="Logo" />
@@ -11,12 +15,12 @@ const NavBar = () => {
                 <h4 className='nav-link'>Buses y Viajes</h4>
                 <h4 className='nav-link'>Horarios y Precios</h4>
                 <div className='nav-user'>
-                    {getUser() ? (
+                    {user ? (
                         <span className='welcome-message'>
-                            <h4>Bienvenido {getUser().name}</h4>
+                            <h4>Bienvenido {user.name}</h4>
                         </span>
                     ) : (
-                        <button className='login-button'>Login</button>
+                        <CustomBtn text='Login'  onClick={()=>navigate('/pages/Login')}/>
                     )}
                 </div>
             </div>

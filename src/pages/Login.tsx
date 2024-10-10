@@ -3,7 +3,7 @@ import { UserInfo } from "../App";
 import './Login.css'
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import CustomBtn from "../components/CustomBtn";
 
 
 const Login = () => {
@@ -102,7 +102,7 @@ const Login = () => {
                     <input onChange={(e)=>HandleChange(e,'nombreLog')} type="text"/>
                     <h4>Contraseña</h4>
                     <input onChange={(e)=>HandleChange(e,'contraLog')} type="password"/>
-                    <button>Iniciar Sesion</button>
+                    <CustomBtn text='Iniciar Sesion' onClick={()=>''}/>
                 </div>
                 <div className="center">
                     <h4>Eres nuevo?</h4>
@@ -118,7 +118,7 @@ const Login = () => {
                     <input onChange={(e)=>HandleChange(e,'nombre')} type="text"/>
                     <h4>Contraseña</h4>
                     <input onChange={(e)=>HandleChange(e,'contra')} type="password"/>
-                    <button>Registrarse</button>
+                    <CustomBtn text='Registrarse' onClick={()=>''}/>
                 </div>
                 <div className="center">
                     <h4>Ya tienes cuenta?</h4>
