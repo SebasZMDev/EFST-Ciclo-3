@@ -1,16 +1,20 @@
+import { useEffect, useState } from 'react';
 import './ComStyles.css';
+
 
 type Props = {
     text: string;
     onClick: ()=>void;
+    escala?: string;
 }
 
-const CustomBtn = ({ text, onClick }:Props) => {
+const CustomBtn = ({ text, onClick, escala }:Props) => {
+
+
   return (
-    <button className="crimson-button" onClick={onClick}>
+    <button className="crimson-button" style={{transform:escala?escala:''}} onClick={onClick}>
         {text}
     </button>
-
   );
 };
 

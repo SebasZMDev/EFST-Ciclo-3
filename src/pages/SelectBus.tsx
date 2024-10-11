@@ -3,6 +3,7 @@ import NavBar from "../components/NavBar"
 import './SelectBus.css'
 import { useEffect, useState } from "react"
 import CustomBtn from "../components/CustomBtn"
+import AsientosBus from "../components/AsientosBus"
 
 const SelectBus = () => {
 
@@ -41,11 +42,7 @@ const SelectBus = () => {
             {paso==1?
             (
             <>
-                <h2 style={{color:'black'}}>Aqui se eligen asientos</h2>
-                <h4 style={{color:'black'}}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto eaque, quibusdam fugit
-                    velit eveniet debitis laudantium quis repellat vero, praesentium culpa consectetur natus! Adipisci delectus harum
-                    necessitatibus cumque. Laudantium, saepe.
-                </h4>
+                <AsientosBus/>
             </>
             ):''
             }
