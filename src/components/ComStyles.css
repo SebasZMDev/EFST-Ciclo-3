@@ -239,14 +239,70 @@
 
 /* ------------------------------ ASIENTOS BUS ------------------------------ */
 
+.ab-div {
+    width: 90%;
+    display: grid;
+    margin: 25px auto;
+    align-items: center;
+}
+
+.ab-seat-tittle {
+    background-color: #202020;
+    border-radius: 10px 10px 0 0;
+    width: 50%;
+    margin: 0 auto;
+    border-bottom: 2px solid black;
+}
+
+.ab-seat-subtittles {
+
+    display: grid;
+    grid-template-columns: 50% 50%;
+    background-color: #202020;
+    border-radius: 10px 10px 0 0;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.ab-seat-subtittles h2:first-child {
+    border-right: 2px solid black;
+}
+
+.ab-piso-seleccionado {
+    background-color: #404040;
+    filter: drop-shadow(0 5px 5px white);
+    z-index: 2;
+    border-radius: 10px 10px 0 0;
+}
+
+
+.ab-div-text {
+    background-color: #404040;
+    font-size: 1.5em;
+    border-radius: 10px;
+    border: 2px solid black;
+    overflow: hidden;
+}
+
+.ab-div-text h3{
+    border-top: 2px solid black;
+    cursor:pointer;
+    transition: all 1s;
+}
+
+.ab-div-text h3:hover{
+    background-color: #202020;
+    transition: all 0.25s;
+}
+
 .ab-seat-display {
-    width: 60%;
-    background-color: #b22222;
+    width: 80%;
+    background-color: #404040;
     margin: 0 auto;
     padding: 20px;
     display: grid;
     border-radius: 10px;
-    border: 4px solid orangered;
+    border: 2px solid black;
     grid-template-columns: repeat(10, 10%);
     grid-template-rows: 20% 20% 20% 20%;
 }

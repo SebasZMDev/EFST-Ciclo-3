@@ -9,8 +9,31 @@ export type UserInfo = {
   id: string,
   name: string,
   email: string,
-  password: string
+  password: string,
+  tickets: TicketInfo[];
 }
+
+export type TicketInfo = {
+  idTicket: string;
+  piso: number;
+  asiento: number;
+  origen: string;
+  destino: string;
+  fecha: Date;
+  precio: number;
+}
+
+export type Bus = {
+  idBus: string;
+  modelo: string;
+  placa: string;
+  capacidad: number;
+  asientosArriba: boolean[];
+  asientosAbajo: boolean[];
+  conductor: string;
+  amenities?: string[];
+};
+
 
 function App() {
 
