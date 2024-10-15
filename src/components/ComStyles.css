@@ -255,13 +255,13 @@
 }
 
 .ab-seat-subtittles {
-
     display: grid;
     grid-template-columns: 50% 50%;
     background-color: #202020;
     border-radius: 10px 10px 0 0;
     width: 70%;
     margin: 0 auto;
+    cursor: pointer;
 }
 
 .ab-seat-subtittles h2:first-child {

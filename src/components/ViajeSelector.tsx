@@ -2,6 +2,8 @@ import { useState } from "react"
 import useModal from "../hooks/useModal";
 import { useNavigate } from "react-router-dom";
 import CustomBtn from "./CustomBtn";
+import { BusInfo } from "../App";
+import { v4 as uuidv4 } from 'uuid';
 
 const ViajeSelector = () => {
     const { openModal, Modal} = useModal();
@@ -10,6 +12,7 @@ const ViajeSelector = () => {
     const [destino, setDestino] = useState('');
     const [fechaIda, setFechaIda] = useState<Date>();
     const [fechaRegreso, setFechaRegreso] = useState<Date>();
+    const [resultados, setResultados] = useState<BusInfo[]>();
 
     const Lugares = [
         { id: 1, lugar: "ABANCAY" },
@@ -52,6 +55,8 @@ const ViajeSelector = () => {
         { id: 38, lugar: "TRUJILLO" },
         { id: 39, lugar: "YUNGAY" }
     ];
+
+
 
     const handlePlace = (value: string, e: React.ChangeEvent<HTMLSelectElement>) => {
         if (value === 'origen') {
@@ -117,19 +122,56 @@ const ViajeSelector = () => {
             }
             if (fechaRegreso){
                 if (fechaIda<fechaRegreso) {
-                    console.log("Se eligio el  viaje correctamente");
-                    navigate('/pages/SelectBus')
-
+                  BuscarBus();
                     return
                 }else {
                     openModal("Ingrese una fecha valida");
-                    console.log('idiota')
                     return
                 }
             }
-            console.log("Se eligio el  viaje correctamente");
-            navigate('/pages/SelectBus')
+            BuscarBus();
         }
+    }
+
+    const CreadorBus = () => {
+
+      const amenities = [
+        "Wi-Fi",
+        "Aire acondicionado",
+        "Asientos reclinables",
+        "Cargadores USB",
+        "Baño",
+        "Televisión",
+        "Portaequipajes",
+        "Cinturones de seguridad",
+        "Luz de lectura",
+      ];
+      const getAmenities = () => {
+        const randomIndex = Math.floor(Math.random() * amenities.length);
+        return amenities[randomIndex];
+      };
+
+      const Fecha = new Date();
+      const nuevoBus: BusInfo = {
+        idBus: uuidv4(),
+        origen: origen,
+        destino: destino,
+        partida: '',
+        llegada: '',
+        capacidad: 60,
+        asientosArriba: Array(36).fill(false),
+        asientosAbajo: Array(24).fill(false),
+        tipo: '',
+        amenities: [getAmenities(), getAmenities()],
+      };
+      return (nuevoBus);
+    };
+
+    const BuscarBus = () => {
+      if (origen&&destino&&fechaIda) {
+        const EstosBuses = [CreadorBus(),CreadorBus(),CreadorBus(),]
+        setResultados(EstosBuses);
+      }
     }
 
     return (
@@ -242,6 +284,16 @@ const ViajeSelector = () => {
               ""
             )}
           </div>
+        </div>
+        <div>
+            {resultados?resultados.map((element)=>
+              <div key={element.idBus} style={{backgroundColor:'#202020'}}>
+                <p>{element.capacidad}</p>
+                <p>{element.origen}</p>
+                <p>{element.destino}</p>
+                <p>{element.amenities}</p>
+              </div>
+            ):''}
         </div>
         <Modal />
       </>

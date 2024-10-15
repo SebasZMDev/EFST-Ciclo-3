@@ -23,16 +23,22 @@ export type TicketInfo = {
   precio: number;
 }
 
-export type Bus = {
+export type BusInfo = {
   idBus: string;
-  modelo: string;
-  placa: string;
+/*   Informacion de viaje  */
+  origen: string;
+  destino: string;
+  partida: string;
+  llegada: string;
+  /*   Informacion del bus  */
   capacidad: number;
   asientosArriba: boolean[];
   asientosAbajo: boolean[];
-  conductor: string;
+  tipo: string;
   amenities?: string[];
 };
+
+
 
 
 function App() {
