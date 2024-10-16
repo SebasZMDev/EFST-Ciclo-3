@@ -1,13 +1,14 @@
 import { useState } from "react"
 import useModal from "../hooks/useModal";
-import { useNavigate } from "react-router-dom";
 import CustomBtn from "./CustomBtn";
 import { BusInfo } from "../App";
 import { v4 as uuidv4 } from 'uuid';
+import { FaInfoCircle } from "react-icons/fa";
+
 
 const ViajeSelector = () => {
     const { openModal, Modal} = useModal();
-    const navigate = useNavigate();
+
     const [origen, setOrigen] = useState('');
     const [destino, setDestino] = useState('');
     const [fechaIda, setFechaIda] = useState<Date>();
@@ -57,7 +58,6 @@ const ViajeSelector = () => {
     ];
 
 
-
     const handlePlace = (value: string, e: React.ChangeEvent<HTMLSelectElement>) => {
         if (value === 'origen') {
             const index = Number(e.target.value);
@@ -81,7 +81,6 @@ const ViajeSelector = () => {
         }
     };
 
-
     const ShowCalendarIda = (e: React.MouseEvent<HTMLDivElement>) => {
         const inputElement = e.currentTarget.querySelector('input[type="date"]') as HTMLInputElement;
         if (inputElement) {
@@ -103,7 +102,6 @@ const ViajeSelector = () => {
             inputElement.showPicker();
         }
       };
-
 
     const ShowValues = () =>{
         console.log(
@@ -150,19 +148,19 @@ const ViajeSelector = () => {
         const randomIndex = Math.floor(Math.random() * amenities.length);
         return amenities[randomIndex];
       };
+      const FechaDeHoy = new Date();
 
-      const Fecha = new Date();
       const nuevoBus: BusInfo = {
         idBus: uuidv4(),
         origen: origen,
         destino: destino,
-        partida: '',
-        llegada: '',
+        partida: FechaDeHoy.getHours().toString() + ":00",
+        llegada: (FechaDeHoy.getHours() + 4).toString() + ":00",
         capacidad: 60,
         asientosArriba: Array(36).fill(false),
         asientosAbajo: Array(24).fill(false),
-        tipo: '',
-        amenities: [getAmenities(), getAmenities()],
+        tipo: 'Buscama',
+        amenities: [getAmenities()+", ", getAmenities()],
       };
       return (nuevoBus);
     };
@@ -171,6 +169,7 @@ const ViajeSelector = () => {
       if (origen&&destino&&fechaIda) {
         const EstosBuses = [CreadorBus(),CreadorBus(),CreadorBus(),]
         setResultados(EstosBuses);
+        /* AQUI SE VOLVERA A ACTIVAR EL BUTTON */
       }
     }
 
@@ -285,15 +284,26 @@ const ViajeSelector = () => {
             )}
           </div>
         </div>
-        <div>
-            {resultados?resultados.map((element)=>
-              <div key={element.idBus} style={{backgroundColor:'#202020'}}>
-                <p>{element.capacidad}</p>
-                <p>{element.origen}</p>
-                <p>{element.destino}</p>
-                <p>{element.amenities}</p>
-              </div>
-            ):''}
+        <div className="vs-resultados-container">
+          <div className="vs-resultados-div" style={{backgroundColor:'#202020'}}><h4>Embarque y Partida</h4><h4>Arribo y Llegada</h4><h4>Precios</h4><h4>{' '}</h4></div>
+          {resultados?resultados.map((element)=>
+            <div className="vs-resultados-div" key={element.idBus}>
+                <div>
+                  <p>Terminal de {element.origen}</p>
+                  <p>{fechaIda ? fechaIda.toLocaleDateString() + ' | ' : ''}{element.partida}</p>
+                </div>
+                <div>
+                  <p>Terminal de {element.destino}</p>
+                  <p>{fechaIda ? fechaIda.toLocaleDateString() + ' | ' : ''}{element.llegada}</p>
+                </div>
+                <div>
+                  <p>Precio Primer Piso: S/80</p>
+                  <p>Precio Primer Piso: S/80</p>
+                </div>
+                <CustomBtn text='Mas informacion' onClick={()=>''} escala="scale(0.75)" />
+                <CustomBtn text='Elegir!' onClick={()=>''} escala="scale(0.85)" />
+            </div>
+          ):''}
         </div>
         <Modal />
       </>

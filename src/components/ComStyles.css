@@ -42,6 +42,17 @@
     outline: none;
   }
 
+  .crimson-disabled {
+    background-color: lightgray;
+    color: gray;
+    border: 3px gray solid;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    opacity: 0.6;
+}
+
+
 
   /* ------------------------------ NAVBAR ------------------------------ */
 
@@ -147,6 +158,22 @@
     background-color: #606060;
 }
 
+.vs-resultados-container {
+    width: 90%;
+    background-color: #404040;
+    border: 2px solid black;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.vs-resultados-div {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 10% 15%;
+    border-bottom: #202020 2px solid;
+    align-items: center;
+}
+
 
 /* ------------------------------ Bienvenida  ------------------------------ */
 
@@ -157,7 +184,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
