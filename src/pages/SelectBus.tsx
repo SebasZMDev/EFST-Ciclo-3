@@ -9,12 +9,6 @@ const SelectBus = () => {
 
     const [paso, setPaso] = useState(0);
 
-
-    useEffect(()=>{
-        if (paso>0){
-            setPaso(paso-1)
-        }
-    },[paso])
     return (
         <>
             <NavBar/>

@@ -14,7 +14,9 @@ const ViajeSelector = () => {
     const [fechaIda, setFechaIda] = useState<Date>();
     const [fechaRegreso, setFechaRegreso] = useState<Date>();
     const [resultados, setResultados] = useState<BusInfo[]>();
+    const [busElegido, setBusElegido] = useState<BusInfo>();
 
+    const [modalAbierto, setModalAbierto] = useState(false);
     const Lugares = [
         { id: 1, lugar: "ABANCAY" },
         { id: 2, lugar: "AQUIA" },
@@ -57,6 +59,9 @@ const ViajeSelector = () => {
         { id: 39, lugar: "YUNGAY" }
     ];
 
+    const displayModal = () => {
+      setModalAbierto(!modalAbierto)
+    }
 
     const handlePlace = (value: string, e: React.ChangeEvent<HTMLSelectElement>) => {
         if (value === 'origen') {
@@ -169,7 +174,6 @@ const ViajeSelector = () => {
       if (origen&&destino&&fechaIda) {
         const EstosBuses = [CreadorBus(),CreadorBus(),CreadorBus(),]
         setResultados(EstosBuses);
-        /* AQUI SE VOLVERA A ACTIVAR EL BUTTON */
       }
     }
 
@@ -284,9 +288,10 @@ const ViajeSelector = () => {
             )}
           </div>
         </div>
+        {resultados?(
         <div className="vs-resultados-container">
           <div className="vs-resultados-div" style={{backgroundColor:'#202020'}}><h4>Embarque y Partida</h4><h4>Arribo y Llegada</h4><h4>Precios</h4><h4>{' '}</h4></div>
-          {resultados?resultados.map((element)=>
+          {resultados.map((element)=>
             <div className="vs-resultados-div" key={element.idBus}>
                 <div>
                   <p>Terminal de {element.origen}</p>
@@ -297,13 +302,41 @@ const ViajeSelector = () => {
                   <p>{fechaIda ? fechaIda.toLocaleDateString() + ' | ' : ''}{element.llegada}</p>
                 </div>
                 <div>
-                  <p>Precio Primer Piso: S/80</p>
+                  <p>Precio Segundo Piso: S/60</p>
                   <p>Precio Primer Piso: S/80</p>
                 </div>
-                <CustomBtn text='Mas informacion' onClick={()=>''} escala="scale(0.75)" />
+                <CustomBtn text='Mas informacion' onClick={()=>{setModalAbierto(true),setBusElegido(element)}} escala="scale(0.85)" />
                 <CustomBtn text='Elegir!' onClick={()=>''} escala="scale(0.85)" />
             </div>
-          ):''}
+          )}
+        </div>):''}
+        <div onClick={displayModal} className="modal-general" style={{display:modalAbierto?'':'none'}}>
+            <div className="vs-modal-bg">
+            </div>
+            <div className="vs-modal-div">
+                {busElegido?
+                (
+                <div className="fucktags">
+                  <div className="bus-info">
+                    <h4>Embarque: Terminal de <span>{busElegido.origen}</span></h4>
+                    <h4>Arribo: Terminal de <span>{busElegido.destino}</span></h4>
+                    <h4>Partida: <span>{busElegido.partida}</span></h4>
+                    <h4>Llegada: <span>{busElegido.llegada}</span></h4>
+                    <h4>Precio Segundo Piso: <span>S/60</span></h4>
+                    <h4>Precio Primer Piso: <span>S/80</span></h4>
+                    <h4>Tipo: <span>{busElegido.tipo}</span></h4>
+                    <h4>Comodidades: <span>{busElegido.amenities}</span></h4>
+                  </div>
+                  <div  className="bus-details">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.553679386112!2d-77.05809172517554!3d-12.00535438822818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105cfeac2b22daf%3A0x3348983025e1fe5a!2sGran%20Terminal%20Terrestre%20Plaza%20Norte!5e0!3m2!1ses!2spe!4v1729133852498!5m2!1ses!2spe" width="600" height="450" loading="lazy"></iframe>
+                    <img src="/public/busimg.jpg"/>
+                  </div>
+                </div>)
+
+                :(<h4>No elegiste ningun Bus W</h4>)}
+                <br/>
+                <CustomBtn text='Cerrar' onClick={displayModal}/>
+            </div>
         </div>
         <Modal />
       </>

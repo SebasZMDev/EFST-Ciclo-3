@@ -18,7 +18,7 @@
   .crimson-button {
     background-color: crimson;
     color: white;
-    padding: 10px 20px;
+    padding: 10px 10px;
     border: 3px orangered solid;
     border-radius: 8px;
     font-size: 16px;
@@ -51,8 +51,6 @@
     box-shadow: none;
     opacity: 0.6;
 }
-
-
 
   /* ------------------------------ NAVBAR ------------------------------ */
 
@@ -169,12 +167,82 @@
 
 .vs-resultados-div {
     display: grid;
-    grid-template-columns: 25% 25% 25% 10% 15%;
+    grid-template-columns: 25% 25% 25% 12.5% 12.5%;
     border-bottom: #202020 2px solid;
     align-items: center;
 }
 
+.vs-.modal-general {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
 
+.vs-modal-bg {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 75%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.vs-modal-div {
+    width: 90%;
+    background-color: #202020;
+    position: relative;
+    padding: 25px;
+    border: 2px solid white;
+    border-radius: 20px;
+}
+
+.fucktags {
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    grid-gap: 10px;
+}
+
+
+.bus-info {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 20px;
+  }
+
+  .bus-info h4 span {
+    color: crimson;
+    font-weight: bold;
+  }
+
+  .bus-details {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .bus-details iframe {
+    border: none;
+    border-radius: 8px;
+    width: 150px;
+    height: 150px;
+  }
+  
+  .bus-details img {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
 /* ------------------------------ Bienvenida  ------------------------------ */
 
 .bienvenida-container {
@@ -262,7 +330,6 @@
     padding-bottom: 20px;
     font-weight: 500;
 }
-
 
 /* ------------------------------ ASIENTOS BUS ------------------------------ */
 
@@ -363,3 +430,5 @@
     transform: rotate(-90deg);
     filter: drop-shadow(0 0 5px white);
 }
+
+/* ------------------------------  ------------------------------ */
