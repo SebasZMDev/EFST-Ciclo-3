@@ -9,6 +9,16 @@ const SelectBus = () => {
 
     const [paso, setPaso] = useState(0);
 
+    const ManejarCambioPaso = (valor: boolean) =>{
+        if (valor==true) {
+            setPaso(paso+1);
+            return true;
+        }else {
+            setPaso(paso-1);
+            return false;
+        }
+    }
+
     return (
         <>
             <NavBar/>
@@ -30,7 +40,7 @@ const SelectBus = () => {
             </div>
             {paso==0?
             (
-                <ViajeSelector/>
+                <ViajeSelector pasoCambiado={ManejarCambioPaso}/>
 
             ):''
             }
@@ -61,7 +71,6 @@ const SelectBus = () => {
             </>
             ):''
             }
-            <CustomBtn text='Siguiente' onClick={()=>setPaso(paso+1)}/>
         </>
     )
 }

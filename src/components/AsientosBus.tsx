@@ -9,9 +9,6 @@ const AsientosBus = () => {
     const ElegirAsiento =  (e: React.MouseEvent<HTMLImageElement>) => {
         e.currentTarget.src="/public/seatgreen.png";
     }
-    const AsientoOcupado =  (e: React.MouseEvent<HTMLImageElement>) => {
-        e.currentTarget.src="/public/seatred.png";
-    }
 
     return (
 
@@ -25,23 +22,59 @@ const AsientosBus = () => {
 
                 {piso==1?
                 (<div className='ab-seat-display'>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                    <div className='ab-seat-div'>
+                        <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                        <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
                     <img src="/public/bath.png" className="ab-stair-icon"/>
                     <span></span>
                     <span></span>
                     <img src='/public/volante.png' className='ab-stair-icon' style={{transform:'rotate(90deg)'}}/>
 
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
                     <span></span>
                     <span></span>
                     <span></span>
@@ -58,23 +91,59 @@ const AsientosBus = () => {
                     <span></span>
                     <span></span>
 
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
                     <img src="/public/escalera.png" className="ab-stair-icon"/>
                     <img src="/public/salida.png" className="ab-stair-icon"/>
                     <span></span>
                     <span></span>
 
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
                     <span></span>
                     <span></span>
                     <span></span>
@@ -82,27 +151,87 @@ const AsientosBus = () => {
                 </div>):''}
                 {piso==2?
                 (<div className='ab-seat-display'>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
 
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
 
                     <span></span>
                     <span></span>
@@ -115,27 +244,75 @@ const AsientosBus = () => {
                     <span></span>
                     <img src='/public/television.png' className='ab-tv-icon'/>
 
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
                     <img src="/public/escalera.png" className="ab-stair-icon"/>
                     <span></span>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
 
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
                     <span></span>
                     <span></span>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
-                    <img onAuxClick={(e)=>AsientoOcupado(e)} onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
+                    <div className='ab-seat-div'>
+                    <img onClick={(e)=>ElegirAsiento(e)} src="/public/seat.png" className="ab-seat-icon"/>
+                        <h4 className='ab-seat-num'>1</h4>
+                    </div>
                 </div>):''}
             </div>
     )
