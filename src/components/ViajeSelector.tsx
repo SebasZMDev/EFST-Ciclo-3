@@ -72,9 +72,14 @@ const ViajeSelector = ({pasoCambiado}:Props) => {
       setModalAbierto(!modalAbierto)
     }
 
+    const GuardarBus = (thisBus:BusInfo) => {
+      localStorage.setItem("BusElegido", JSON.stringify(thisBus));
+      console.log(thisBus)
+    }
+
     const RandomMapAndImg = () => {
       const Mapas = ["https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3904.911885634131!2d-77.10774511098862!3d-11.841441456014763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105d42072d91a25%3A0x8e08d45ecbd94d75!2sTurismo%20Cavassa!5e0!3m2!1ses-419!2spe!4v1729206447303!5m2!1ses-419!2spe","https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.553679386112!2d-77.05809172517554!3d-12.00535438822818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105cfeac2b22daf%3A0x3348983025e1fe5a!2sGran%20Terminal%20Terrestre%20Plaza%20Norte!5e0!3m2!1ses!2spe!4v1729133852498!5m2!1ses!2spe","https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.553679386112!2d-77.05809172517554!3d-12.00535438822818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105cfeac2b22daf%3A0x3348983025e1fe5a!2sGran%20Terminal%20Terrestre%20Plaza%20Norte!5e0!3m2!1ses!2spe!4v1729133852498!5m2!1ses!2spe"]
-      const Imagenes = ["/public/landscape/bus1.jpg","/public/landscape/bus2.jpg","/public/landscape/bus3.jpg"]
+      const Imagenes = ["/landscape/bus1.jpg","/landscape/bus2.jpg","/landscape/bus3.jpg"]
       const mapaRandom = Math.floor(Math.random()*3)
       const imagenRandom = Math.floor(Math.random()*3)
       setMapa(Mapas[mapaRandom])
@@ -324,7 +329,7 @@ const ViajeSelector = ({pasoCambiado}:Props) => {
                   <p>Precio Primer Piso: S/80</p>
                 </div>
                 <CustomBtn text='Mas informacion' onClick={()=>{setModalAbierto(true),setBusElegido(element),RandomMapAndImg()}} escala="scale(0.85)" />
-                <CustomBtn text='Elegir!' onClick={HabilitarCambio} escala="scale(0.85)" />
+                <CustomBtn text='Elegir!' onClick={()=>{GuardarBus(element), HabilitarCambio()}} escala="scale(0.85)" />
             </div>
           )}
         </div>):''}

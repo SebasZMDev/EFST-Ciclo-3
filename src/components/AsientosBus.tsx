@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./ComStyles.css";
 import CustomBtn from "./CustomBtn";
 
 const AsientosBus = () => {
+  const BusParseado = localStorage.getItem("BusElegido")
+  const [BusElegido, setBusElegido] =  useState(JSON.parse(BusParseado?BusParseado:''))
   const [asientos, setAsientos] = useState<number[]>();
   const [piso, setPiso] = useState(2);
   const ElegirAsiento = (e: React.MouseEvent<HTMLImageElement>,valor: number) => {
@@ -18,7 +20,23 @@ const AsientosBus = () => {
             setAsientos([valor])
         }
     }
-};
+  };
+
+  const ActualizarBus = () =>{
+    localStorage.setItem("BusElegido", JSON.stringify(BusElegido))
+    console.log(BusElegido)
+  }
+
+  const ActualizarAsientos = () => {
+    asientos?.map((element)=>{
+      if (element<25){
+        setBusElegido(BusElegido.asientosAbajo[element])
+      }else {
+        setBusElegido(BusElegido.asientosArriba[element-24])
+      }
+    })
+    ActualizarBus
+  }
 
   return (
     <>
@@ -588,14 +606,14 @@ const AsientosBus = () => {
   <div className="ab-elegidos">
     <div>
     Asientos Elegidos: {" "}
-        {asientos.map((element)=>(
-            <>
+        {asientos.map((element, index)=>(
+            <span key={index}>
                 <span className="ab-asientos">{element}</span>
                 <span> </span>
-            </>
+            </span>
         ))}
     </div>
-    <CustomBtn text="Aceptar" onClick={()=>''}/>
+    <CustomBtn text="Aceptar" onClick={ActualizarAsientos}/>
   </div>
 ) : null}
     </>

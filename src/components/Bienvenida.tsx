@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const Bienvenida = () => {
 
     const navigate = useNavigate()
-    const imgArray = ['/public/landscape/img.jpg', '/public/landscape/img2.jpg', '/public/landscape/img3.png'];
+    const imgArray = ['/landscape/img.jpg', '/landscape/img2.jpg', '/landscape/img3.png'];
     const [contador, setContador] = useState(0);
     const [estaImagen, setEstaImagen] = useState(imgArray[0]);
 
