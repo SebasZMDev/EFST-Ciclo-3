@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import "./ComStyles.css";
 import CustomBtn from "./CustomBtn";
+import { BusInfo, TicketInfo } from "../App";
 
-const AsientosBus = () => {
+const AsientoSelector = () => {
   const BusParseado = localStorage.getItem("BusElegido")
   const [BusElegido, setBusElegido] =  useState(JSON.parse(BusParseado?BusParseado:''))
   const [asientos, setAsientos] = useState<number[]>();
@@ -22,21 +23,25 @@ const AsientosBus = () => {
     }
   };
 
-  const ActualizarBus = () =>{
-    localStorage.setItem("BusElegido", JSON.stringify(BusElegido))
+  const ActualizarBus = (nuevoBus:BusInfo) =>{
+    localStorage.setItem("BusElegido", JSON.stringify(nuevoBus))
     console.log(BusElegido)
   }
 
   const ActualizarAsientos = () => {
-    asientos?.map((element)=>{
-      if (element<25){
-        setBusElegido(BusElegido.asientosAbajo[element])
-      }else {
-        setBusElegido(BusElegido.asientosArriba[element-24])
+    const nuevoBusElegido = { ...BusElegido };
+    asientos?.forEach((element) => {
+      if (element < 25) {
+        nuevoBusElegido.asientosAbajo[element] = true;
+      } else {
+        nuevoBusElegido.asientosArriba[element - 24] = true;
       }
-    })
-    ActualizarBus
-  }
+    });
+    setBusElegido(nuevoBusElegido);
+    ActualizarBus(nuevoBusElegido);
+
+  };
+
 
   return (
     <>
@@ -620,4 +625,4 @@ const AsientosBus = () => {
   );
 };
 
-export default AsientosBus;
+export default AsientoSelector;

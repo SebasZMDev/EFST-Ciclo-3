@@ -2,7 +2,8 @@ import ViajeSelector from "../components/ViajeSelector"
 import NavBar from "../components/NavBar"
 import './SelectBus.css'
 import { useState } from "react"
-import AsientosBus from "../components/AsientosBus"
+import AsientoSelector from "../components/AsientoSelector"
+import PasajeroSelector from "../components/PasajeroSelector"
 
 const SelectBus = () => {
 
@@ -40,24 +41,17 @@ const SelectBus = () => {
             {paso==0?
             (
                 <ViajeSelector pasoCambiado={ManejarCambioPaso}/>
-
             ):''
             }
             {paso==1?
             (
-            <>
-                <AsientosBus/>
-            </>
+            <AsientoSelector/>
             ):''
             }
             {paso==2?
-            (<>
-                <h2 style={{color:'black'}}>Pajeros</h2>
-                <h4 style={{color:'black'}}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto eaque, quibusdam fugit
-                    velit eveniet debitis laudantium quis repellat vero, praesentium culpa consectetur natus! Adipisci delectus harum
-                    necessitatibus cumque. Laudantium, saepe.
-                </h4>
-            </>):''
+            (
+            <PasajeroSelector/>
+            ):''
             }
             {paso==3?
             (
