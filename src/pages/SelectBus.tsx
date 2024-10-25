@@ -4,6 +4,7 @@ import './SelectBus.css'
 import { useState } from "react"
 import AsientoSelector from "../components/AsientoSelector"
 import PasajeroSelector from "../components/PasajeroSelector"
+import PaginaPago from "../components/PaginaPago"
 
 const SelectBus = () => {
 
@@ -45,23 +46,17 @@ const SelectBus = () => {
             }
             {paso==1?
             (
-            <AsientoSelector/>
+            <AsientoSelector pasoCambiado={ManejarCambioPaso}/>
             ):''
             }
             {paso==2?
             (
-            <PasajeroSelector/>
+            <PasajeroSelector  pasoCambiado={ManejarCambioPaso}/>
             ):''
             }
             {paso==3?
             (
-            <>
-                <h2 style={{color:'black'}}>Confirmacion de pago</h2>
-                <h4 style={{color:'black'}}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto eaque, quibusdam fugit
-                    velit eveniet debitis laudantium quis repellat vero, praesentium culpa consectetur natus! Adipisci delectus harum
-                    necessitatibus cumque. Laudantium, saepe.
-                </h4>
-            </>
+            <PaginaPago/>
             ):''
             }
         </>

@@ -332,16 +332,16 @@
     font-weight: 500;
 }
 
-/* ------------------------------ ASIENTOS BUS ------------------------------ */
+/* ------------------------------ ASIENTOS SELECTOR ------------------------------ */
 
-.ab-div {
+.as-div {
     width: 90%;
     display: grid;
     margin: 25px auto;
     align-items: center;
 }
 
-.ab-seat-tittle {
+.as-seat-tittle {
     background-color: #202020;
     border-radius: 10px 10px 0 0;
     width: 50%;
@@ -349,7 +349,7 @@
     border-bottom: 2px solid black;
 }
 
-.ab-seat-subtittles {
+.as-seat-subtittles {
     display: grid;
     grid-template-columns: 50% 50%;
     background-color: #202020;
@@ -359,11 +359,11 @@
     cursor: pointer;
 }
 
-.ab-seat-subtittles h2:first-child {
+.as-seat-subtittles h2:first-child {
     border-right: 2px solid black;
 }
 
-.ab-piso-seleccionado {
+.as-piso-seleccionado {
     background-color: #404040;
     filter: drop-shadow(0 5px 5px white);
     z-index: 2;
@@ -371,7 +371,7 @@
 }
 
 
-.ab-div-text {
+.as-div-text {
     background-color: #404040;
     font-size: 1.5em;
     border-radius: 10px;
@@ -379,18 +379,18 @@
     overflow: hidden;
 }
 
-.ab-div-text h3{
+.as-div-text h3{
     border-top: 2px solid black;
     cursor:pointer;
     transition: all 1s;
 }
 
-.ab-div-text h3:hover{
+.as-div-text h3:hover{
     background-color: #202020;
     transition: all 0.25s;
 }
 
-.ab-seat-display {
+.as-seat-display {
     width: 80%;
     background-color: #404040;
     margin: 0 auto;
@@ -402,20 +402,20 @@
     grid-template-rows: 20% 20% 20% 20%;
 }
 
-.ab-seat-div {
+.as-seat-div {
     display: grid;
     align-items: center;
     align-content: center;
     position: relative;
 }
 
-.ab-seat-icon {
+.as-seat-icon {
     width: 50px;
     height: 50px;
     transform: rotate(-90deg);
 }
 
-.ab-seat-num {
+.as-seat-num {
     position: absolute;
     display: grid;
     left: 10px;
@@ -424,7 +424,7 @@
     pointer-events: none;
 }
 
-.ab-tv-icon {
+.as-tv-icon {
     width: 50px;
     height: 50px;
     transform: rotate(90deg) scale(0.8);
@@ -432,7 +432,7 @@
     left: 50%;
 }
 
-.ab-stair-icon {
+.as-stair-icon {
     position: relative;
     width: 50px;
     height: 50px;
@@ -441,14 +441,14 @@
     transform: scale(1.25);
 }
 
-.ab-seat-icon-ocuped {
+.as-seat-icon-ocuped {
     width: 50px;
     height: 50px;
     transform: rotate(-90deg);
     filter: drop-shadow(0 0 5px white);
 }
 
-.ab-elegidos {
+.as-elegidos {
     display: grid;
     grid-template-columns: 85% 15%;
     width: 90%;
@@ -459,11 +459,137 @@
     padding: 25px;
 }
 
-.ab-asientos {
+.as-asientos {
     background-color: #009900;
     border-radius: 10px;
     padding: 5px;
     cursor: pointer;
 }
 
-/* ------------------------------  ------------------------------ */
+/* ------------------------------ PASAJERO SELECTOR ------------------------------ */
+
+.ps-boletos-container {
+    color: black;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.ps-boleto {
+    color: black;
+    background-color: #f9f9f9;
+    border: 2px dashed #c0c0c0;
+    border-radius: 10px;
+    width: 250px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.ps-boleto input {
+    background-color: #909090;
+}
+
+.ps-boleto:hover {
+    transform: scale(1.05);
+}
+
+.ps-boleto-header, .ps-boleto-body, .ps-boleto-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #d0d0d0;
+}
+
+.ps-boleto-header {
+    font-weight: bold;
+}
+
+.ps-boleto-numero, .ps-boleto-piso,
+.ps-boleto-origen, .ps-boleto-destino,
+.ps-boleto-precio {
+    font-size: 16px;
+}
+
+.ps-boleto-footer {
+    border: none;
+    text-align: center;
+}
+
+.ps-boleto-precio {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.pp-container {
+    padding: 20px;
+    background-color: #f4f4f4;
+    min-height: 100vh;
+}
+
+.pp-title {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.pp-form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.pp-input-group {
+    margin-bottom: 15px;
+}
+
+.pp-label {
+    color: black;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.pp-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: gray;
+    color: black;
+}
+
+.pp-button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.pp-comprobante {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+}
+
+.pp-comprobante h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.pp-comprobante-details {
+    margin-bottom: 20px;
+}
+
+.pp-comprobante-details p {
+    margin: 5px 0;
+    color: #555;
+}

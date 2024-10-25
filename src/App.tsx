@@ -19,8 +19,8 @@ export type TicketInfo = {
   asiento: number;
   origen: string;
   destino: string;
-  fecha: Date;
-  precio: number;
+  fecha: string;
+  precio: string;
 }
 
 export type BusInfo = {
@@ -37,7 +37,6 @@ export type BusInfo = {
   tipo: string;
   amenities?: string[];
 };
-
 
 
 

@@ -10,7 +10,7 @@ const NavBar = () => {
     const user = getUser();
     return (
         <nav className='nav-bar'>
-            <img className='nav-logo' src='/public/logo.png' alt="Logo" />
+            <img className='nav-logo' src='/public/logo.png' alt="Logo" onClick={()=>navigate('/pages/Home')} />
             <div className='nav-links'>
                 <h4 className='nav-link'>Buses y Viajes</h4>
                 <h4 className='nav-link'>Horarios y Precios</h4>
